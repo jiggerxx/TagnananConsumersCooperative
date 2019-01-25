@@ -63,7 +63,7 @@ Public Class printbyrange
                     dr = cmd.ExecuteReader
 
                     While dr.Read
-                        gtotal.Text = Format(CDbl(dr.Item("gtotal")), "0.00")
+                        gtotal.Text = Format(CDbl(dr.Item("gtotal")), "0,0.00")
 
                     End While
 
@@ -82,7 +82,7 @@ Public Class printbyrange
                 dbconn.Close()
                 dbconn.Open()
 
-                query = "SELECT resibo_products.*,resibo.*,customers.*,products.*,CONCAT(customers.lname,',',customers.fname,' ',customers.mname) as 'custname' FROM resibo_products LEFT JOIN resibo ON resibo_products.transacnum = resibo.transacnum LEFT JOIN customers ON customers.custcode = resibo.custcode LEFT JOIN products ON products.prodcode = resibo_products.prodcode WHERE resibo.custcode='" & ComboBox1.SelectedValue.ToString & "' AND resibo.payment_type = 'CASH' AND resibo.transacdate BETWEEN '" & selecteddate & "' AND '" & selecteddate2 & "'"
+                query = "SELECT FORMAT(resibo_products.subtotal,2) as 'subtotal', resibo_products.qty,resibo.*,customers.*,products.*,CONCAT(customers.lname,',',customers.fname,' ',customers.mname) as 'custname' FROM resibo_products LEFT JOIN resibo ON resibo_products.transacnum = resibo.transacnum LEFT JOIN customers ON customers.custcode = resibo.custcode LEFT JOIN products ON products.prodcode = resibo_products.prodcode WHERE resibo.custcode='" & ComboBox1.SelectedValue.ToString & "' AND resibo.payment_type = 'CASH' AND resibo.transacdate BETWEEN '" & selecteddate & "' AND '" & selecteddate2 & "'"
                 adapt = New MySqlDataAdapter(query, dbconn)
                 adapt.Fill(cashsalesreport, "cashsalesreport")
 

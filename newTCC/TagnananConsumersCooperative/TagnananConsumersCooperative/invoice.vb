@@ -93,7 +93,7 @@
                     dbconn.Open()
                     With cmd
                         .Connection = dbconn
-                        .CommandText = "insert into resibo_products values('" & transnumber & "','" & cart2.cartdataArray(x, 0) & "','" & cart2.cartdataArray(x, 5) & "','" & Format(CDbl(cart2.cartdataArray(x, 6)), "0,0.00") & "','" & qtyholder & "')"
+                        .CommandText = "insert into resibo_products values('" & transnumber & "','" & cart2.cartdataArray(x, 0) & "','" & cart2.cartdataArray(x, 5) & "','" & CDbl(cart2.cartdataArray(x, 6)) & "','" & qtyholder & "')"
                         .ExecuteNonQuery()
 
                     End With
