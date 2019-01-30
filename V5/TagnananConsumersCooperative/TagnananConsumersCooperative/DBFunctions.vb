@@ -3,7 +3,7 @@
 Module DBFunctions
 
 
-    Public dbconn As New MySqlConnection("server=192.168.0.17;userid=;password=;database=tcc_db")
+    Public dbconn As New MySqlConnection("server=localhost;userid=root;password=;database=tcc_db")
     Public cmd As New MySqlCommand
     Public dr As MySqlDataReader
 

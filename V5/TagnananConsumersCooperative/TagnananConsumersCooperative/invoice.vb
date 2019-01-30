@@ -26,25 +26,6 @@
         Dim cash As String = TextBox7.Text
         Dim chan As String = TextBox8.Text
 
-
-        'Try
-        '    agentkey = DirectCast(ComboBox1.SelectedItem, KeyValuePair(Of String, String)).Key
-        '    agentvalue = DirectCast(ComboBox1.SelectedItem, KeyValuePair(Of String, String)).Value
-        'Catch ex As Exception
-        '    agentkey = ""
-        '    agentvalue = ""
-        'End Try
-
-        
-
-        'Try
-        '    pintorkey = DirectCast(ComboBox3.SelectedItem, KeyValuePair(Of String, String)).Key
-        '    pintorvalue = DirectCast(ComboBox3.SelectedItem, KeyValuePair(Of String, String)).Value
-        'Catch ex As Exception
-        '    pintorkey = ""
-        '    pintorvalue = ""
-        'End Try
-
         Try
             custcode = DirectCast(ComboBox5.SelectedItem, KeyValuePair(Of String, String)).Key
             custname = DirectCast(ComboBox5.SelectedItem, KeyValuePair(Of String, String)).Value
@@ -299,73 +280,73 @@
 
     Private Sub invoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadproductswithstocks()
-        TextBox5.Text = MDIParent1.user.Text
+        'TextBox5.Text = MDIParent1.user.Text
 
-        Dim firstprionum As Boolean = False
-        Dim firsttransacnum As Boolean = False
-        Dim prionum As Integer = 0
-        Dim transacnum As Integer = 0
-        Dim datenow As String = Date.Today.ToString("yyyy-MM-dd")
+        'Dim firstprionum As Boolean = False
+        'Dim firsttransacnum As Boolean = False
+        'Dim prionum As Integer = 0
+        'Dim transacnum As Integer = 0
+        'Dim datenow As String = Date.Today.ToString("yyyy-MM-dd")
 
-        'TextBox5.Text = Form1.Button12.Text
 
-        Try
-            checkstate()
-            dbconn.Open()
 
-            With cmd
-                .Connection = dbconn
-                .CommandText = "SELECT MAX(prionum) as maxprionum FROM resibo WHERE transacdate='" & datenow & "'"
-                dr = cmd.ExecuteReader
+        'Try
+        '    checkstate()
+        '    dbconn.Open()
 
-                While dr.Read
-                    prionum = dr.Item("maxprionum")
-                    firstprionum = True
-                End While
+        '    With cmd
+        '        .Connection = dbconn
+        '        .CommandText = "SELECT MAX(prionum) as maxprionum FROM resibo WHERE transacdate='" & datenow & "'"
+        '        dr = cmd.ExecuteReader
 
-            End With
+        '        While dr.Read
+        '            prionum = dr.Item("maxprionum")
+        '            firstprionum = True
+        '        End While
 
-        Catch ex As Exception
+        '    End With
 
-        End Try
-        dbconn.Close()
-        dbconn.Dispose()
+        'Catch ex As Exception
 
-        If firstprionum Then
-            Label14.Text = "" & prionum + 1
-        Else
-            Label14.Text = "1"
-        End If
+        'End Try
+        'dbconn.Close()
+        'dbconn.Dispose()
 
-        Try
-            checkstate()
-            dbconn.Open()
+        'If firstprionum Then
+        '    Label14.Text = "" & prionum + 1
+        'Else
+        '    Label14.Text = "1"
+        'End If
 
-            With cmd
-                .Connection = dbconn
-                .CommandText = "SELECT MAX(transacnum) as maxtransacnum FROM resibo  WHERE transacdate='" & datenow & "'"
-                dr = cmd.ExecuteReader
+        'Try
+        '    checkstate()
+        '    dbconn.Open()
 
-                While dr.Read
-                    transacnum = dr.Item("maxtransacnum")
-                    firsttransacnum = True
-                End While
+        '    With cmd
+        '        .Connection = dbconn
+        '        .CommandText = "SELECT MAX(transacnum) as maxtransacnum FROM resibo  WHERE transacdate='" & datenow & "'"
+        '        dr = cmd.ExecuteReader
 
-            End With
+        '        While dr.Read
+        '            transacnum = dr.Item("maxtransacnum")
+        '            firsttransacnum = True
+        '        End While
 
-        Catch ex As Exception
+        '    End With
 
-        End Try
-        dbconn.Close()
-        dbconn.Dispose()
+        'Catch ex As Exception
 
-        If firsttransacnum Then
-            TextBox1.Text = "" & transacnum + 1
-        Else
-            TextBox1.Text = Date.Today.ToString("yyyyMMdd") & "1"
-        End If
+        'End Try
+        'dbconn.Close()
+        'dbconn.Dispose()
 
-        ComboBox4.SelectedIndex = 0
+        'If firsttransacnum Then
+        '    TextBox1.Text = "" & transacnum + 1
+        'Else
+        '    TextBox1.Text = Date.Today.ToString("yyyyMMdd") & "1"
+        'End If
+
+        'ComboBox4.SelectedIndex = 0
         loadcustomer()
         TextBox4.Text = 0
     End Sub

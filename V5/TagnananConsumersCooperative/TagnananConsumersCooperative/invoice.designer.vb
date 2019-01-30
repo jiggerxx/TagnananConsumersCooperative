@@ -157,7 +157,7 @@ Partial Class invoice
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(94, 226)
+        Me.Label6.Location = New System.Drawing.Point(74, 223)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(108, 17)
         Me.Label6.TabIndex = 37
@@ -181,7 +181,7 @@ Partial Class invoice
         Me.ComboBox5.Location = New System.Drawing.Point(193, 192)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(153, 25)
-        Me.ComboBox5.TabIndex = 2
+        Me.ComboBox5.TabIndex = 3
         '
         'Label14
         '
