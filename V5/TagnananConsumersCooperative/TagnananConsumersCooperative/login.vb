@@ -29,13 +29,15 @@ Public Class login
                         If username.Equals(dr.GetString("username")) And password.Equals(dr.GetString("password")) Then
 
                             Dim name As String = dr.Item("fname")
-                            Dim mname As String = dr.Item("mname")
+                            Dim mname As String = dr.Item("mname").ToString.Substring(0, 1)
                             Dim lname As String = dr.Item("lname")
+                            Dim empid As String = dr.Item("employeeID")
                             position = dr.Item("acctype")
                             MessageBox.Show("Welcome " + name + " " + mname + " " + lname + "!", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             tandf = True
-
-                            MDIParent1.user.Text = position & " - " & name
+                            MDIParent1.fullname.Text = name + " " + mname + " " + lname
+                            MDIParent1.user.Text = name + " " + mname + ". " + lname
+                            MDIParent1.Label1.Text = empid
 
                             If position = "CASHIER" Then
                                 MDIParent1.DASHBOARDToolStripMenuItem.Visible = False
@@ -76,6 +78,7 @@ Public Class login
     End Sub
 
     Private Sub login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loginusername.Focus()
         Try
             checkstate()
             dbconn.Open()

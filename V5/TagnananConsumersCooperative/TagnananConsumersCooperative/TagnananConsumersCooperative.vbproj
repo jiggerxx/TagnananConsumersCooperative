@@ -268,6 +268,12 @@
     <Compile Include="addinvoice_type.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="updatestocksinfo.designer.vb">
       <DependentUpon>updatestocksinfo.vb</DependentUpon>
     </Compile>
@@ -552,6 +558,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addinvoice_type.resx">
       <DependentUpon>addinvoice_type.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="updatestocksinfo.resx">
       <DependentUpon>updatestocksinfo.vb</DependentUpon>

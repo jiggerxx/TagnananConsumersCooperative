@@ -52,4 +52,21 @@
         outofstockgrid.Dock = DockStyle.Fill
         outofstockgrid.Show()
     End Sub
+
+    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            MDIParent1.Panel1.Visible = False
+            For Each f As Form In MDIParent1.MdiChildren
+                f.Close()
+            Next
+
+            cart2.MdiParent = MDIParent1
+            cart2.Dock = DockStyle.Fill
+            cart2.Show()
+            cart2.Enabled = False
+            loadproductswithstocks()
+            Form2.Show()
+            loadcustomer()
+        End If
+    End Sub
 End Class

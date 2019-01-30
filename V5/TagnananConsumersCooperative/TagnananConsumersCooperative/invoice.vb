@@ -1,4 +1,5 @@
-﻿Public Class invoice
+﻿Imports MySql.Data.MySqlClient
+Public Class invoice
     Public transacsnum As String = ""
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
@@ -19,7 +20,7 @@
         Dim cashier As String = TextBox5.Text
         Dim totalwdiscount As Double = Convert.ToDouble(TextBox6.Text)
         Dim credit As Double = 0
-      
+
         Dim paymenttype As String = ComboBox4.Text
         Dim prionumber As String = Label14.Text
 
@@ -44,16 +45,16 @@
                 dbconn.Open()
                 With cmd
                     .Connection = dbconn
-                    .CommandText = "INSERT INTO resibo VALUES('" & transnumber & "','" & datetransac & "','" & custcode & "','" & totalcost & "','" & discount & "','" & totalwdiscount & "','" & cashier & "', '" & paymenttype & "', '" & prionumber & "', '" & cash & "', '" & chan & "')"
+                    .CommandText = "INSERT INTO resibo VALUES('" & transnumber & "','" & datetransac & "','" & custcode & "','" & totalcost & "','" & discount & "','" & totalwdiscount & "','" & cashier & "', '" & paymenttype & "', '" & cash & "', '" & chan & "')"
                     .ExecuteNonQuery()
                     MessageBox.Show("Transaction #" + transnumber + " has been added!", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                    transacsnum = transnumber
                     TextBox1.Clear()
                     TextBox3.Clear()
                     TextBox4.Clear()
                     TextBox5.Clear()
                     TextBox6.Clear()
-                    transacsnum = transnumber
+
 
                 End With
             Catch ex As Exception
@@ -206,72 +207,12 @@
             dbconn.Close()
             dbconn.Dispose()
 
-            'If cart.mixxerCounterX <> 0 Then
-            '    For x = 0 To cart.mixxerCounterX - 1
-            '        Try
-            '            checkstate()
-            '            dbconn.Open()
-            '            With cmd
-            '                .Connection = dbconn
-            '                .CommandText = "insert into mixxer_transac values('" & cart.mixxerArray(x, 0) & "','" & cart.mixxerArray(x, 1) & "','" & transnumber & "','" & datetransac & "','" & cart.mixxerArray(x, 3) & "','" & cart.mixxerArray(x, 2) & "')"
-            '                .ExecuteNonQuery()
-            '            End With
-            '        Catch ex As Exception
-            '            MessageBox.Show("error in mixxer query! " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            '        End Try
-            '        dbconn.Close()
-            '        dbconn.Dispose()
-            '    Next
-            'End If
-
-            'If agentkey <> "" Then
-
-            '    Try
-            '        checkstate()
-            '        dbconn.Open()
-            '        With cmd
-            '            .Connection = dbconn
-            '            .CommandText = "insert into agents_transac values('" & agentkey & "','" & transnumber & "','" & datetransac & "','" & cart.totalunits & "','" & cart.agentcanvassertotal & "')"
-            '            .ExecuteNonQuery()
-            '        End With
-            '    Catch ex As Exception
-            '        MessageBox.Show("error in agents query! " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-            '    End Try
-            '    dbconn.Close()
-            '    dbconn.Dispose()
-            'End If
-
-            'If pintorkey <> "" Then
-
-            '    Dim totalpintor As Double = 0
-
-            '    totalpintor = (cart.pintorreadymixtotal + cart.pintormixtotal) - ((cart.pintorreadymixtotal + cart.pintormixtotal) * 0.12)
-
-            '    Try
-            '        checkstate()
-            '        dbconn.Open()
-            '        With cmd
-            '            .Connection = dbconn
-            '            .CommandText = "insert into pintor_transac values('" & pintorkey & "','" & transnumber & "','" & cart.pintorreadymixtotal & "','" & cart.pintormixtotal & "','" & totalpintor & "','" & datetransac & "')"
-            '            .ExecuteNonQuery()
-
-            '        End With
-            '    Catch ex As Exception
-            '        MessageBox.Show("Error in pintor query! " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-            '    End Try
-            '    dbconn.Close()
-            '    dbconn.Dispose()
-
-            'End If
 
             printreceipt.datafrom = "invoice"
             printreceipt.selectedtransacnum = transnumber
             printreceipt.ShowDialog()
 
-            Me.Close()
-            Me.Dispose()
+ 
 
 
         End If
@@ -279,44 +220,15 @@
     End Sub
 
     Private Sub invoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ComboBox5.Focus()
         loadproductswithstocks()
-        'TextBox5.Text = MDIParent1.user.Text
+        TextBox5.Text = MDIParent1.user.Text
 
         'Dim firstprionum As Boolean = False
         'Dim firsttransacnum As Boolean = False
         'Dim prionum As Integer = 0
         'Dim transacnum As Integer = 0
         'Dim datenow As String = Date.Today.ToString("yyyy-MM-dd")
-
-
-
-        'Try
-        '    checkstate()
-        '    dbconn.Open()
-
-        '    With cmd
-        '        .Connection = dbconn
-        '        .CommandText = "SELECT MAX(prionum) as maxprionum FROM resibo WHERE transacdate='" & datenow & "'"
-        '        dr = cmd.ExecuteReader
-
-        '        While dr.Read
-        '            prionum = dr.Item("maxprionum")
-        '            firstprionum = True
-        '        End While
-
-        '    End With
-
-        'Catch ex As Exception
-
-        'End Try
-        'dbconn.Close()
-        'dbconn.Dispose()
-
-        'If firstprionum Then
-        '    Label14.Text = "" & prionum + 1
-        'Else
-        '    Label14.Text = "1"
-        'End If
 
         'Try
         '    checkstate()
@@ -343,12 +255,21 @@
         'If firsttransacnum Then
         '    TextBox1.Text = "" & transacnum + 1
         'Else
-        '    TextBox1.Text = Date.Today.ToString("yyyyMMdd") & "1"
+        '    TextBox1.Text = Date.Today.ToString("yyyyMMdd") + "1-" & MDIParent1.Label1.Text
         'End If
 
         'ComboBox4.SelectedIndex = 0
         loadcustomer()
         TextBox4.Text = 0
+
+        Dim CreateCommand As MySqlCommand = dbconn.CreateCommand
+        Dim da As New MySqlDataAdapter("SELECT * FROM resibo  ", dbconn)
+        Dim dt As New DataTable
+
+        da.Fill(dt)
+
+        TextBox1.Text = Date.Today.ToString("yyyyMMdd") & "-" & dt.Rows.Count() & "-" & MDIParent1.Label1.Text
+
     End Sub
 
     Private Sub TextBox4_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox4.KeyPress
@@ -454,7 +375,7 @@
     End Sub
 
     Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs)
-  
+
     End Sub
 
     Private Sub TextBox7_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox7.TextChanged

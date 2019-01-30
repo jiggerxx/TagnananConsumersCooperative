@@ -34,15 +34,15 @@ Partial Class Form1
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -142,7 +142,7 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(263, 56)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(400, 20)
+        Me.Label1.Size = New System.Drawing.Size(397, 20)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Prk. Caimito,Tagnanan, Mabini, Compostela Valley Province"
         '
@@ -174,15 +174,6 @@ Partial Class Form1
         Me.Label7.Size = New System.Drawing.Size(153, 20)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "TIN: 483-682-137-600"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.TagnananConsumersCooperative.My.Resources.Resources.tcc
-        Me.PictureBox1.Location = New System.Drawing.Point(23, -55)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(233, 242)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'Label9
         '
@@ -217,6 +208,15 @@ Partial Class Form1
         Me.Panel5.Size = New System.Drawing.Size(175, 175)
         Me.Panel5.TabIndex = 4
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.TagnananConsumersCooperative.My.Resources.Resources.tcc
+        Me.PictureBox1.Location = New System.Drawing.Point(23, -55)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(233, 242)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -224,7 +224,7 @@ Partial Class Form1
         Me.AutoScroll = True
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.Color.DimGray
-        Me.ClientSize = New System.Drawing.Size(1354, 756)
+        Me.ClientSize = New System.Drawing.Size(1354, 773)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
@@ -242,9 +242,9 @@ Partial Class Form1
         Me.Panel4.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

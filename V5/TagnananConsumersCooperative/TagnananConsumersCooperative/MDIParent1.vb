@@ -213,8 +213,11 @@ Public Class MDIParent1
         cart2.MdiParent = Me
         cart2.Dock = DockStyle.Fill
         cart2.Show()
+        'cart2.Enabled = False
         loadproductswithstocks()
-
+        'Form2.Show()
+        'loadcustomer()
+        cart2.TextBox1.Focus()
     End Sub
 
     Public Function Loader()
@@ -290,5 +293,22 @@ Public Class MDIParent1
     Private Sub user_Click_1(sender As Object, e As EventArgs) Handles user.Click
         usermanagement.Show()
         Me.Enabled = False
+    End Sub
+
+    Private Sub MDIParent1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        'If e.KeyCode = Keys.F1 Then
+        '    Me.Panel1.Visible = False
+        '    For Each f As Form In Me.MdiChildren
+        '        f.Close()
+        '    Next
+
+        '    cart2.MdiParent = Me
+        '    cart2.Dock = DockStyle.Fill
+        '    cart2.Show()
+        '    cart2.Enabled = False
+        '    loadproductswithstocks()
+        '    Form2.Show()
+        '    loadcustomer()
+        'End If
     End Sub
 End Class

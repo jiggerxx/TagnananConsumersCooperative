@@ -181,7 +181,7 @@ Partial Class invoice
         Me.ComboBox5.Location = New System.Drawing.Point(193, 192)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(153, 25)
-        Me.ComboBox5.TabIndex = 3
+        Me.ComboBox5.TabIndex = 1
         '
         'Label14
         '
@@ -265,6 +265,7 @@ Partial Class invoice
         Me.TextBox6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox6.Location = New System.Drawing.Point(193, 321)
         Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.ReadOnly = True
         Me.TextBox6.Size = New System.Drawing.Size(153, 23)
         Me.TextBox6.TabIndex = 5
         '
@@ -367,6 +368,7 @@ Partial Class invoice
         '
         'transacdatepicker
         '
+        Me.transacdatepicker.Enabled = False
         Me.transacdatepicker.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.transacdatepicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.transacdatepicker.Location = New System.Drawing.Point(193, 161)

@@ -29,8 +29,8 @@ Partial Class login
         Me.Label1 = New System.Windows.Forms.Label()
         Me.loginpassword = New System.Windows.Forms.TextBox()
         Me.loginusername = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -119,6 +119,18 @@ Partial Class login
         Me.loginusername.TabIndex = 2
         Me.loginusername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Azure
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(279, 155)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(271, 52)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "LOG-IN"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.IndianRed
@@ -129,18 +141,6 @@ Partial Class login
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Azure
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(279, 155)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(271, 52)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "LOG-IN"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -149,6 +149,7 @@ Partial Class login
         Me.ClientSize = New System.Drawing.Size(559, 257)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "login"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -43,7 +43,9 @@ Partial Class MDIParent1
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.user = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.fullname = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,14 +75,14 @@ Partial Class MDIParent1
         Me.STOCKSToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.STOCKRECIEVINGREPORTToolStripMenuItem, Me.STOCKCARDToolStripMenuItem, Me.RETURNTOSTOCKToolStripMenuItem})
         Me.STOCKSToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.STOCKSToolStripMenuItem.Name = "STOCKSToolStripMenuItem"
-        Me.STOCKSToolStripMenuItem.Size = New System.Drawing.Size(67, 21)
+        Me.STOCKSToolStripMenuItem.Size = New System.Drawing.Size(66, 21)
         Me.STOCKSToolStripMenuItem.Text = "STOCKS"
         '
         'STOCKRECIEVINGREPORTToolStripMenuItem
         '
         Me.STOCKRECIEVINGREPORTToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VIEWToolStripMenuItem, Me.ADDToolStripMenuItem})
         Me.STOCKRECIEVINGREPORTToolStripMenuItem.Name = "STOCKRECIEVINGREPORTToolStripMenuItem"
-        Me.STOCKRECIEVINGREPORTToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.STOCKRECIEVINGREPORTToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.STOCKRECIEVINGREPORTToolStripMenuItem.Text = "STOCK RECIEVING REPORT"
         '
         'VIEWToolStripMenuItem
@@ -106,7 +108,7 @@ Partial Class MDIParent1
         '
         Me.RETURNTOSTOCKToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VIEWToolStripMenuItem1, Me.ADDToolStripMenuItem1})
         Me.RETURNTOSTOCKToolStripMenuItem.Name = "RETURNTOSTOCKToolStripMenuItem"
-        Me.RETURNTOSTOCKToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.RETURNTOSTOCKToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
         Me.RETURNTOSTOCKToolStripMenuItem.Text = "RETURN TO STOCK"
         '
         'VIEWToolStripMenuItem1
@@ -132,7 +134,7 @@ Partial Class MDIParent1
         '
         Me.CUSTOMERToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.CUSTOMERToolStripMenuItem.Name = "CUSTOMERToolStripMenuItem"
-        Me.CUSTOMERToolStripMenuItem.Size = New System.Drawing.Size(88, 21)
+        Me.CUSTOMERToolStripMenuItem.Size = New System.Drawing.Size(87, 21)
         Me.CUSTOMERToolStripMenuItem.Text = "CUSTOMER"
         '
         'REPORTSToolStripMenuItem
@@ -173,14 +175,27 @@ Partial Class MDIParent1
         'user
         '
         Me.user.Depth = 0
-        Me.user.Location = New System.Drawing.Point(1074, 0)
+        Me.user.Location = New System.Drawing.Point(973, 0)
         Me.user.MouseState = MaterialSkin.MouseState.HOVER
         Me.user.Name = "user"
         Me.user.Primary = True
-        Me.user.Size = New System.Drawing.Size(187, 27)
+        Me.user.Size = New System.Drawing.Size(288, 27)
         Me.user.TabIndex = 20
         Me.user.Text = "USER"
         Me.user.UseVisualStyleBackColor = True
+        '
+        'fullname
+        '
+        Me.fullname.Depth = 0
+        Me.fullname.Location = New System.Drawing.Point(483, 0)
+        Me.fullname.MouseState = MaterialSkin.MouseState.HOVER
+        Me.fullname.Name = "fullname"
+        Me.fullname.Primary = True
+        Me.fullname.Size = New System.Drawing.Size(247, 27)
+        Me.fullname.TabIndex = 22
+        Me.fullname.Text = "FULLNAME"
+        Me.fullname.UseVisualStyleBackColor = True
+        Me.fullname.Visible = False
         '
         'Button2
         '
@@ -199,6 +214,16 @@ Partial Class MDIParent1
         Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(749, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 20)
+        Me.Label1.TabIndex = 23
+        Me.Label1.Text = "Label1"
+        Me.Label1.Visible = False
+        '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -206,12 +231,15 @@ Partial Class MDIParent1
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1350, 729)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.fullname)
         Me.Controls.Add(Me.user)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -247,5 +275,7 @@ Partial Class MDIParent1
     Friend WithEvents REPORTSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VIEWToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ADDToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents fullname As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

@@ -14,7 +14,7 @@ Public Class Register
 
         da.Fill(dt)
 
-        TextBox1.Text = Now.Year.ToString() & "-USR-" & Format(dt.Rows.Count() + 1, "000")
+        TextBox1.Text = Format(dt.Rows.Count() + 1, "00")
 
         Dim doesexist As Boolean = False
 

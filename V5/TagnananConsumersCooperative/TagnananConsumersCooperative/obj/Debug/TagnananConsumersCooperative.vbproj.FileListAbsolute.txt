@@ -343,3 +343,4 @@ C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananCo
 C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\obj\Debug\TagnananConsumersCooperative.View.resources
 C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\obj\Debug\TagnananConsumersCooperative.ViewStockCard.resources
 C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\obj\Debug\TagnananConsumersCooperative.vbproj.GenerateResource.Cache
+C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\obj\Debug\TagnananConsumersCooperative.Form2.resources

@@ -62,7 +62,7 @@ Partial Class Register
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(114, 142)
+        Me.Label1.Location = New System.Drawing.Point(116, 137)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 17)
         Me.Label1.TabIndex = 1
@@ -107,7 +107,7 @@ Partial Class Register
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(74, 204)
+        Me.Label3.Location = New System.Drawing.Point(79, 204)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(92, 17)
         Me.Label3.TabIndex = 6

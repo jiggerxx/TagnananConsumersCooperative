@@ -247,6 +247,9 @@ Public Class cart2
             dbconn.Dispose()
 
             NumericUpDown1.Select()
+        ElseIf e.KeyCode = Keys.F1 Then
+            Call Button2_Click(Me, e)
+
         End If
     End Sub
 
@@ -280,6 +283,10 @@ Public Class cart2
     End Sub
 
     Private Sub cart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Call Label11_Click(Me, e)
+
+        'Form2.Show()
+        'loadcustomer()
         'Loader()
     End Sub
 
@@ -504,19 +511,6 @@ Public Class cart2
         Dim productlocator As Integer = 0
         Dim unitdetected As Double = 0
 
-
-        'Try
-        '    mixxerkey = DirectCast(ComboBox2.SelectedItem, KeyValuePair(Of String, String)).Key
-        'Catch ex As Exception
-        '    mixxerkey = ""
-        'End Try
-
-        'If RadioButton1.Checked = True Then
-        '    mixtype = "Ready Mix"
-        'ElseIf RadioButton2.Checked = True Then
-        '    mixtype = "Mixing"
-        'End If
-
         For x = 0 To cartcounterX - 1
             If cartdataArray(x, 0).ToString.Equals(prodcode) Then
                 totalqty = Convert.ToDouble(cartdataArray(x, 5)) + NumericUpDown1.Value
@@ -578,7 +572,7 @@ Public Class cart2
 
         DataGridView1.Rows.Clear()
         For x = 0 To cartcounterX - 1
-            DataGridView1.Rows.Add(New String() {cartdataArray(x, 0), cartdataArray(x, 1), cartdataArray(x, 4), cartdataArray(x, 5), cartdataArray(x, 6)})
+            DataGridView1.Rows.Insert(0, New String() {cartdataArray(x, 0), cartdataArray(x, 1), cartdataArray(x, 4), cartdataArray(x, 5), cartdataArray(x, 6)})
         Next
 
         totalcost.Text = totalpays
@@ -721,7 +715,9 @@ Public Class cart2
     End Sub
 
     Private Sub cart2_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        
+        If e.KeyCode = Keys.F1 Then
+            Call Button2_Click(Me, e)
+        End If
     End Sub
 
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged

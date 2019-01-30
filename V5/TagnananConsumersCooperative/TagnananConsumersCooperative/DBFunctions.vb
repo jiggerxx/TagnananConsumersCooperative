@@ -713,6 +713,7 @@ Module DBFunctions
 
         Try
             invoice.ComboBox5.DataSource = Nothing
+            Form2.ComboBox5.DataSource = Nothing
 
             checkstate()
             dbconn.Open()
@@ -761,6 +762,12 @@ Module DBFunctions
                 printbyrange2.ComboBox1.ValueMember = "Key"
                 printbyrange2.ComboBox1.SelectedIndex = -1
 
+                Form2.ComboBox5.AutoCompleteSource = AutoCompleteSource.CustomSource
+                Form2.ComboBox5.AutoCompleteCustomSource = custauto
+                Form2.ComboBox5.DataSource = New BindingSource(custvalue, Nothing)
+                Form2.ComboBox5.DisplayMember = "Value"
+                Form2.ComboBox5.ValueMember = "Key"
+                Form2.ComboBox5.SelectedIndex = -1
             Catch ex As Exception
                 MessageBox.Show(ex.ToString + " Error in Load loadcustomer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
