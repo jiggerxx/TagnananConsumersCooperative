@@ -223,42 +223,6 @@ Public Class invoice
         ComboBox5.Focus()
         loadproductswithstocks()
         TextBox5.Text = MDIParent1.user.Text
-
-        'Dim firstprionum As Boolean = False
-        'Dim firsttransacnum As Boolean = False
-        'Dim prionum As Integer = 0
-        'Dim transacnum As Integer = 0
-        'Dim datenow As String = Date.Today.ToString("yyyy-MM-dd")
-
-        'Try
-        '    checkstate()
-        '    dbconn.Open()
-
-        '    With cmd
-        '        .Connection = dbconn
-        '        .CommandText = "SELECT MAX(transacnum) as maxtransacnum FROM resibo  WHERE transacdate='" & datenow & "'"
-        '        dr = cmd.ExecuteReader
-
-        '        While dr.Read
-        '            transacnum = dr.Item("maxtransacnum")
-        '            firsttransacnum = True
-        '        End While
-
-        '    End With
-
-        'Catch ex As Exception
-
-        'End Try
-        'dbconn.Close()
-        'dbconn.Dispose()
-
-        'If firsttransacnum Then
-        '    TextBox1.Text = "" & transacnum + 1
-        'Else
-        '    TextBox1.Text = Date.Today.ToString("yyyyMMdd") + "1-" & MDIParent1.Label1.Text
-        'End If
-
-        'ComboBox4.SelectedIndex = 0
         loadcustomer()
         TextBox4.Text = 0
 
@@ -268,7 +232,7 @@ Public Class invoice
 
         da.Fill(dt)
 
-        TextBox1.Text = Date.Today.ToString("yyyyMMdd") & "-" & dt.Rows.Count() & "-" & MDIParent1.Label1.Text
+        TextBox1.Text = Date.Today.ToString("yyyyMMdd") & dt.Rows.Count() & MDIParent1.Label1.Text
 
     End Sub
 

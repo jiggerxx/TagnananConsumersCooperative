@@ -156,12 +156,43 @@ Public Class cart2
 
         srp.Text = "-"
         qty.Text = "-"
-        ComboBox1.SelectedIndex = -1
+        'ComboBox1.SelectedIndex = -1
         'totalcost.Text = "-"
 
         'cartcounterX = 0
         'draftcounterX = 0
         'totalpays = 0
+        'draftpays = 0
+        mixxerCounterX = 0
+        draftmixxerCounterx = 0
+        pintorreadymixtotal = 0
+        pintormixtotal = 0
+        agentcanvassertotal = 0
+        totalunits = 0
+
+        pintorreadymixtotaldraft = 0
+        pintormixtotaldraft = 0
+        agentcanvassertotaldraft = 0
+        totalunitsdraft = 0
+        NumericUpDown1.Value = 1
+        TextBox1.Focus()
+        Return Nothing
+    End Function
+
+    Public Function LoaderInit()
+
+        DataGridView1.Rows.Clear()
+        prodcode.Text = "-"
+        prodname.Text = "-"
+
+        srp.Text = "-"
+        qty.Text = "-"
+        'ComboBox1.SelectedIndex = -1
+        totalcost.Text = "-"
+
+        cartcounterX = 0
+        'draftcounterX = 0
+        totalpays = 0
         'draftpays = 0
         mixxerCounterX = 0
         draftmixxerCounterx = 0
@@ -282,12 +313,13 @@ Public Class cart2
         End If
     End Sub
 
-    Private Sub cart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call Label11_Click(Me, e)
+    Public Sub cart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        Call Label11_Click(Me, e)
+        LoaderInit()
         'Form2.Show()
         'loadcustomer()
-        'Loader()
+
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
@@ -658,7 +690,7 @@ Public Class cart2
 
             DataGridView1.Rows.Clear()
             For x = 0 To cartcounterX - 1
-                DataGridView1.Rows.Add(New String() {cartdataArray(x, 0), cartdataArray(x, 1), cartdataArray(x, 4), cartdataArray(x, 5), cartdataArray(x, 6)})
+                DataGridView1.Rows.Insert(0, New String() {cartdataArray(x, 0), cartdataArray(x, 1), cartdataArray(x, 4), cartdataArray(x, 5), cartdataArray(x, 6)})
             Next
 
             totalcost.Text = totalpays

@@ -37,8 +37,8 @@ Public Class printreceipt
 
                 'ReportView.CrystalReportViewer1.ReportSource = rd
                 'newrd.Load(MapPath("~\resibo.rpt"))
-                newrd.SetDataSource(resibo)
-                newrd.Load("C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\resibo.rpt")
+            newrd.Load("C:\Users\Pixe\Documents\GitHub\sysdev\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\resibo.rpt")
+            newrd.SetDataSource(resibo)
                 newrd.PrintToPrinter(1, False, 0, 0)
                 'ReportView.ShowDialog()
                 'ReportView.Dispose()
@@ -59,7 +59,8 @@ Public Class printreceipt
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
-
+        Call cart2.cart_Load(Me, e)
+        invoice.Close()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click

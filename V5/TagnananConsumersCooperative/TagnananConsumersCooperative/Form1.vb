@@ -63,10 +63,8 @@
             cart2.MdiParent = MDIParent1
             cart2.Dock = DockStyle.Fill
             cart2.Show()
-            cart2.Enabled = False
             loadproductswithstocks()
-            Form2.Show()
-            loadcustomer()
+            cart2.TextBox1.Focus()
         End If
     End Sub
 End Class
