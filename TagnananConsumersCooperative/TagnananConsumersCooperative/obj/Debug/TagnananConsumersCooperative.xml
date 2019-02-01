@@ -6,56 +6,7 @@ TagnananConsumersCooperative
 </name>
 </assembly>
 <members>
-<member name="P:TagnananConsumersCooperative.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.add_documents">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_new_window_48">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_plus_48">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_print_48">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_repeat_48">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.logout">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.printer">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.save_file_option">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.tcc">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:TagnananConsumersCooperative.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member><member name="T:TagnananConsumersCooperative.DataSet1.SRRDataTable">
+<member name="T:TagnananConsumersCooperative.DataSet1.SRRDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -130,6 +81,55 @@ Row event argument class
 </member><member name="T:TagnananConsumersCooperative.DataSet1">
 	<summary>
 Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.add_documents">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_new_window_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_plus_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_print_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.icons8_repeat_48">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.logout">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.printer">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.save_file_option">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:TagnananConsumersCooperative.My.Resources.Resources.tcc">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:TagnananConsumersCooperative.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
 </members>

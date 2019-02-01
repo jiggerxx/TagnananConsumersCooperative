@@ -181,20 +181,20 @@ Public Class stockrecieving
             dbconn.Close()
             dbconn.Dispose()
 
-            Try
+            'Try
 
-                checkstate()
-                dbconn.Open()
-                With cmd
-                    .Connection = dbconn
-                    .CommandText = "INSERT INTO acquired_products VALUES('" & ("SRR-" & txtSRR.Text) & "','" & DataGridView1.Rows(x).Cells(0).Value & "','" & DataGridView1.Rows(x).Cells(1).Value & "','" & DataGridView1.Rows(x).Cells(3).Value & "','" & DataGridView1.Rows(x).Cells(6).Value & "','" & DataGridView1.Rows(x).Cells(7).Value & "','" & qtyholder & "','" & DateTimePicker1.Value.ToString("yyyy/MM/dd HH:MM:ss") & "','" & DataGridView1.Rows(x).Cells(4).Value & "','0')"
-                    .ExecuteNonQuery()
+            checkstate()
+            dbconn.Open()
+            With cmd
+                .Connection = dbconn
+                .CommandText = "INSERT INTO acquired_products VALUES('" & ("SRR-" & txtSRR.Text) & "','" & DataGridView1.Rows(x).Cells(0).Value & "','" & DataGridView1.Rows(x).Cells(1).Value & "','" & DataGridView1.Rows(x).Cells(3).Value & "','" & DataGridView1.Rows(x).Cells(6).Value & "','" & DataGridView1.Rows(x).Cells(7).Value & "','" & qtyholder & "','" & DateTimePicker1.Value.ToString("yyyy/MM/dd HH:MM:ss") & "','" & DataGridView1.Rows(x).Cells(4).Value & "','0')"
+                .ExecuteNonQuery()
 
-                End With
-            Catch ex As Exception
-                MessageBox.Show("Error! " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End With
+            'Catch ex As Exception
+            'MessageBox.Show("Error! " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-            End Try
+            'End Try
             dbconn.Close()
             dbconn.Dispose()
 

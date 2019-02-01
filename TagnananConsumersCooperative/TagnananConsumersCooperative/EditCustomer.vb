@@ -65,10 +65,9 @@
                 With cmd
 
                     .Connection = dbconn
-                    .CommandText = "UPDATE customers SET fname='" & fname & "',mname='" & mname & "',lname='" & lname & "',street_purok='" & street_purok & "',barangay='" & brgy & "',city='" & city & "',province='" & province & "',creditlimit='" & creditlimit & "' WHERE custcode='" & selectedkey & "'"
+                    .CommandText = "UPDATE customers SET fname='" & fname & "',mname='" & mname & "',lname='" & lname & "',street_purok='" & street_purok & "',barangay='" & brgy & "',city='" & city & "',province='" & province & "'',contact_number='" & contactnumber & "',creditlimit='" & creditlimit & "' WHERE custcode='" & selectedkey & "'"
                     .ExecuteNonQuery()
                     MessageBox.Show("Customer " + fname + " " + mname + " " + lname + " has been updated!", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
 
                 End With
             Catch ex As Exception
