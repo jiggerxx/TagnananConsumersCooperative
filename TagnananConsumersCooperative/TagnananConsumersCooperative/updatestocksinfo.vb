@@ -1,7 +1,7 @@
 ﻿Public Class updatestocksinfo
     Dim stocks As Double = 0
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        loadproductswithstocks()
+        'loadproductswithstocks()
         usermanagement.Enabled = True
         Me.Close()
     End Sub
@@ -43,6 +43,7 @@
         '    MessageBox.Show("Not Added! " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         'End Try
+
         dbconn.Close()
         dbconn.Dispose()
 

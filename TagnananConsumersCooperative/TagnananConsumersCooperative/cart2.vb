@@ -23,129 +23,8 @@ Public Class cart2
     Public totalunitsdraft As Double = 0
     Private hchem As Integer
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        If ComboBox1.Text = "" Then
-            Button1.Enabled = False
-        Else
-            Button1.Enabled = True
-        End If
-
-        Try
-            Dim comprodcode As String = DirectCast(ComboBox1.SelectedItem, KeyValuePair(Of String, String)).Key
-
-            dbconn.Open()
-
-            With cmd
-                .Connection = dbconn
-                .CommandText = "SELECT * FROM products where prodcode='" & comprodcode & "'"
-                dr = cmd.ExecuteReader
-
-                While dr.Read
-
-                    prodcode.Text = dr.Item("barcode")
-                    prodname.Text = dr.Item("prodname")
-                    srp.Text = dr.Item("srp")
-                    qty.Text = dr.Item("stock")
-
-                    NumericUpDown1.Maximum = dr.Item("stock")
-                    NumericUpDown1.Value = 1
-                End While
-
-            End With
-        Catch ex As Exception
-            'MessageBox.Show(ex.Message + "Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        dbconn.Close()
-        dbconn.Dispose()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim x As Integer = 0
-        Dim y As Integer = 0
-        Dim totalqty As Integer = 0
-        Dim prodcode As String = DirectCast(ComboBox1.SelectedItem, KeyValuePair(Of String, String)).Key
-        Dim exist As Boolean = False
-        Dim added As Boolean = False
-        Dim price As Double = 0
-        Dim mixxerkey As String = ""
-        Dim mixtype As String = ""
-        Dim mixxerexist As Boolean = False
-        Dim productlocator As Integer = 0
-        Dim unitdetected As Double = 0
-
-        For x = 0 To cartcounterX - 1
-            If cartdataArray(x, 0).ToString.Equals(prodcode) Then
-                totalqty = Convert.ToDouble(cartdataArray(x, 5)) + NumericUpDown1.Value
-
-                If totalqty <= NumericUpDown1.Maximum Then
-                    cartdataArray(x, 5) = totalqty.ToString
-                    totalpays = totalpays + (Convert.ToDouble(cartdataArray(x, 4)) * NumericUpDown1.Value)
-                    totalunits = totalunits + (Convert.ToDouble(cartdataArray(x, 3)) * NumericUpDown1.Value)
-                Else
-                    MessageBox.Show("Maximum Limit Reached For This Product", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-
-                unitdetected = cartdataArray(x, 3)
-                productlocator = x
-                exist = True
-            End If
-        Next
-
-
-        If exist.Equals(False) Then
-
-            Try
-                dbconn.Open()
-
-                With cmd
-                    .Connection = dbconn
-                    .CommandText = "SELECT * FROM products where prodcode = '" & prodcode & "'"
-                    dr = cmd.ExecuteReader
-
-                    While dr.Read
-
-                        cartdataArray(cartcounterX, 0) = dr.Item("prodcode")
-                        cartdataArray(cartcounterX, 1) = dr.Item("prodname")
-                        cartdataArray(cartcounterX, 4) = dr.Item("srp")
-                        'totalunits = totalunits + (Convert.ToDouble(dr.Item("unit")) * NumericUpDown1.Value)
-                        price = dr.Item("srp")
-
-                        added = True
-
-                    End While
-
-                    cartdataArray(cartcounterX, 5) = NumericUpDown1.Value
-                    price = price * NumericUpDown1.Value
-                    cartdataArray(cartcounterX, 6) = price
-                    totalpays = totalpays + price
-                End With
-            Catch ex As Exception
-                MessageBox.Show(ex.Message + "Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-            dbconn.Close()
-            dbconn.Dispose()
-
-        End If
-
-        agentcanvassertotal = (totalunits / 4) * 5
-
-        If added.Equals(True) Then
-            cartcounterX = cartcounterX + 1
-        End If
-
-        DataGridView1.Rows.Clear()
-        For x = 0 To cartcounterX - 1
-            DataGridView1.Rows.Add(New String() {cartdataArray(x, 0), cartdataArray(x, 1), cartdataArray(x, 4), cartdataArray(x, 5), cartdataArray(x, 6)})
-            'MessageBox.Show(x & vbNewLine + cartdataArray(x, 0) + vbNewLine + cartdataArray(x, 1) + vbNewLine + cartdataArray(x, 4) + vbNewLine + cartdataArray(x, 5) + vbNewLine + cartdataArray(x, 6))
-        Next
-
-        totalcost.Text = totalpays
-        Loader()
-        ComboBox1.Focus()
-    End Sub
-
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Loader()
+        LoaderInit()
     End Sub
 
     Public Function Loader()
@@ -206,6 +85,7 @@ Public Class cart2
         agentcanvassertotaldraft = 0
         totalunitsdraft = 0
         NumericUpDown1.Value = 1
+        Label7.Text = 0
         TextBox1.Focus()
         Return Nothing
     End Function
@@ -255,8 +135,6 @@ Public Class cart2
 
                         prodcode.Text = dr.Item("barcode")
                         prodname.Text = dr.Item("prodname")
-                        'produnit.Text = dr.Item("unit") & " " & dr.Item("unitword")
-                        'prodtype.Text = dr.Item("type")
                         srp.Text = dr.Item("srp")
                         qty.Text = dr.Item("stock")
 
@@ -264,8 +142,10 @@ Public Class cart2
 
                         If dr.Item("stock") > 0 Then
                             NumericUpDown1.Minimum = 1
+
                         Else
                             NumericUpDown1.Minimum = 0
+
                         End If
 
                     End While
@@ -280,37 +160,31 @@ Public Class cart2
             NumericUpDown1.Select()
         ElseIf e.KeyCode = Keys.F1 Then
             Call Button2_Click(Me, e)
-
+        ElseIf e.KeyCode = Keys.F12 Then
+            Call Button3_Click(Me, e)
         End If
     End Sub
 
     Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
         If Label11.ForeColor <> Color.Red Then
             Label11.ForeColor = Color.Red
-            Label10.ForeColor = Color.Black
+
             TextBox1.Visible = True
-            ComboBox1.Visible = False
+            ' ComboBox1.Visible = False
 
             prodcode.Text = "-"
             prodname.Text = "-"
             srp.Text = "-"
             qty.Text = "-"
             TextBox1.Focus()
-            Button1.Visible = False
+            'Button1.Visible = False
             Button4.Visible = True
 
         End If
     End Sub
 
-    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
-        If Label10.ForeColor <> Color.Red Then
-            Label10.ForeColor = Color.Red
-            Label11.ForeColor = Color.Black
-            ComboBox1.Visible = True
-            TextBox1.Visible = False
-            Button4.Visible = False
-            Button1.Visible = True
-        End If
+    Private Sub Label10_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Public Sub cart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -436,7 +310,7 @@ Public Class cart2
     '    'addagent.ShowDialog()
     'End Sub
 
-    
+
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)
         Dim x As Integer = 0
@@ -453,7 +327,7 @@ Public Class cart2
         Dim unitdetected As Double = 0
 
 
-        
+
         For x = 0 To cartcounterX - 1
             If cartdataArray(x, 0).ToString.Equals(prodcode) Then
                 totalqty = Convert.ToDouble(cartdataArray(x, 5)) + NumericUpDown1.Value
@@ -509,7 +383,7 @@ Public Class cart2
 
         agentcanvassertotal = (totalunits / 4) * 5
 
-        
+
         If added.Equals(True) Then
             cartcounterX = cartcounterX + 1
         End If
@@ -527,7 +401,7 @@ Public Class cart2
 
     End Sub
 
-   
+
 
     Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
         Dim x As Integer = 0
@@ -693,18 +567,19 @@ Public Class cart2
                 DataGridView1.Rows.Insert(0, New String() {cartdataArray(x, 0), cartdataArray(x, 1), cartdataArray(x, 4), cartdataArray(x, 5), cartdataArray(x, 6)})
             Next
 
-            totalcost.Text = totalpays
+            totalcost.Text = Format(totalpays, "0,0.00")
             Loader()
 
-            ElseIf e.KeyCode = Keys.Escape Then
+        ElseIf e.KeyCode = Keys.Escape Then
             TextBox1.Focus()
 
 
         End If
+        Label7.Text = DataGridView1.RowCount
     End Sub
 
-   
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
         'Try
         '    DataGridView1.Rows.Remove(DataGridView1.Rows(rowclicked))
         '    cartcounterX = cartcounterX - 1
@@ -732,10 +607,7 @@ Public Class cart2
         ElseIf result = DialogResult.No Then
 
         ElseIf result = DialogResult.Yes Then
-            If Label10.ForeColor = Color.Red Then
-                cartdataArray(rowclicked, 3) = 0
-                'MessageBox.Show("flag")
-            End If
+
 
             totalpays = Format(CDbl(totalcost.Text) - CDbl(DataGridView1.Rows(rowclicked).Cells(4).Value), "0,0.00")
             totalcost.Text = totalpays
@@ -756,7 +628,7 @@ Public Class cart2
 
     End Sub
 
-   
+
     Private Sub prodcode_TextChanged(sender As Object, e As EventArgs) Handles prodcode.TextChanged
         'If Label10.ForeColor = Color.Red Then
         '    NumericUpDown1.Focus()
@@ -815,5 +687,6 @@ Public Class cart2
 
 
     End Sub
+
 
 End Class

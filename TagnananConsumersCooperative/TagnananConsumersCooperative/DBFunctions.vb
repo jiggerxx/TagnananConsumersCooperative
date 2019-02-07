@@ -778,59 +778,59 @@ Module DBFunctions
         Return Nothing
     End Function
 
-    Public Function loadproductswithstocks()
+    'Public Function loadproductswithstocks()
 
-        Dim prodcomboSource As New Dictionary(Of String, String)()
-        Dim prodautocomplete As New AutoCompleteStringCollection
-        Dim tandf As Boolean = False
+    '    Dim prodcomboSource As New Dictionary(Of String, String)()
+    '    Dim prodautocomplete As New AutoCompleteStringCollection
+    '    Dim tandf As Boolean = False
 
-        Try
+    '    Try
 
-            cart2.ComboBox1.DataSource = Nothing
+    '        cart2.ComboBox1.DataSource = Nothing
 
-            checkstate()
-            dbconn.Open()
+    '        checkstate()
+    '        dbconn.Open()
 
-            With cmd
-                .Connection = dbconn
-                .CommandText = "SELECT * FROM products WHERE stock <> 0"
-                dr = cmd.ExecuteReader
+    '        With cmd
+    '            .Connection = dbconn
+    '            .CommandText = "SELECT * FROM products WHERE stock <> 0"
+    '            dr = cmd.ExecuteReader
 
-                While dr.Read
+    '            While dr.Read
 
-                    prodcomboSource.Add(dr.Item("prodcode"), dr.Item("prodname") + " : " + dr.Item("barcode"))
-                    prodautocomplete.AddRange(New String() {dr.Item("prodname") + " : " + dr.Item("barcode")})
+    '                prodcomboSource.Add(dr.Item("prodcode"), dr.Item("prodname") + " : " + dr.Item("barcode"))
+    '                prodautocomplete.AddRange(New String() {dr.Item("prodname") + " : " + dr.Item("barcode")})
 
-                    tandf = True
-                End While
-            End With
+    '                tandf = True
+    '            End While
+    '        End With
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message + "Error1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message + "Error1!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '    End Try
 
-        dbconn.Close()
-        dbconn.Dispose()
+    '    dbconn.Close()
+    '    dbconn.Dispose()
 
-        If tandf Then
-            Try
+    '    If tandf Then
+    '        Try
 
-                cart2.ComboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource
-                cart2.ComboBox1.AutoCompleteCustomSource = prodautocomplete
-                cart2.ComboBox1.DataSource = New BindingSource(prodcomboSource, Nothing)
-                cart2.ComboBox1.DisplayMember = "Value"
-                cart2.ComboBox1.ValueMember = "Key"
-                cart2.ComboBox1.SelectedIndex = -1
+    '            cart2.ComboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource
+    '            cart2.ComboBox1.AutoCompleteCustomSource = prodautocomplete
+    '            cart2.ComboBox1.DataSource = New BindingSource(prodcomboSource, Nothing)
+    '            cart2.ComboBox1.DisplayMember = "Value"
+    '            cart2.ComboBox1.ValueMember = "Key"
+    '            cart2.ComboBox1.SelectedIndex = -1
 
-            Catch ex As Exception
-                MessageBox.Show(ex.ToString + " Error in Products", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            MessageBox.Show("No Products Found! Please Add One First!", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+    '        Catch ex As Exception
+    '            MessageBox.Show(ex.ToString + " Error in Products", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        End Try
+    '    Else
+    '        MessageBox.Show("No Products Found! Please Add One First!", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '    End If
 
-        Return Nothing
-    End Function
+    '    Return Nothing
+    'End Function
 
     Public Function loadproductsrts()
 

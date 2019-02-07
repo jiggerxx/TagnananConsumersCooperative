@@ -63,7 +63,7 @@
             cart2.MdiParent = MDIParent1
             cart2.Dock = DockStyle.Fill
             cart2.Show()
-            loadproductswithstocks()
+            'loadproductswithstocks()
             cart2.TextBox1.Focus()
         End If
     End Sub

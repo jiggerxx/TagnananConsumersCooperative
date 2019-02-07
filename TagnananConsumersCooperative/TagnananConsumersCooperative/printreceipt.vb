@@ -8,13 +8,18 @@ Public Class printreceipt
     Public datafrom As String
     Public selectedtransacnum As String
 
-    Private conn As String = "Data Source=192.168.0.17; Database= tcc_db; User ID =; Password=;"
+    Private conn As String = "Data Source=localhost; Database= tcc_db; User ID =root; Password=;"
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim dsConn As New MySqlConnection(conn)
         Dim dsDA As New MySqlDataAdapter
         Dim rd As New CrystalDecisions.CrystalReports.Engine.ReportDocument
-        Dim newrd As ReportDocument = New ReportDocument
-
+        Dim newrd As ReportDocument = New resibo
+        Dim total_unit As CrystalDecisions.CrystalReports.Engine.TextObject
+        Dim total_unit2 As CrystalDecisions.CrystalReports.Engine.TextObject
+        total_unit = newrd.ReportDefinition.ReportObjects("Text8")
+        total_unit2 = newrd.ReportDefinition.ReportObjects("Text26")
+        total_unit.Text = cart2.Label7.Text
+        total_unit2.Text = cart2.Label7.Text
         Try
 
             Dim resibo As New DataSet
@@ -36,8 +41,8 @@ Public Class printreceipt
 
 
                 'ReportView.CrystalReportViewer1.ReportSource = rd
-                'newrd.Load(MapPath("~\resibo.rpt"))
-            newrd.Load("\\A-PC\Users\Public\Documents\V7\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\resibo.rpt")
+            newrd.Load("C:\Users\Pixe\Documents\GitHub\sysdev\TagnananConsumersCooperative\TagnananConsumersCooperative\resibo.rpt")
+            'newrd.Load("\\A-PC\Users\Public\Documents\V7\V5\TagnananConsumersCooperative\TagnananConsumersCooperative\resibo.rpt")
             newrd.SetDataSource(resibo)
                 newrd.PrintToPrinter(1, False, 0, 0)
                 'ReportView.ShowDialog()
@@ -54,7 +59,7 @@ Public Class printreceipt
     End Sub
 
     Private Sub printreceipt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        MessageBox.Show(cart2.Label7.Text)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

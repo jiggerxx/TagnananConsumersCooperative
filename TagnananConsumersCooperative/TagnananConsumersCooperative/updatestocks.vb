@@ -1,7 +1,7 @@
 ﻿Public Class updatestocks
     Dim stocks As Double = 0
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        loadproductswithstocks()
+        'loadproductswithstocks()
         usermanagement.Enabled = True
         Me.Close()
     End Sub
@@ -17,7 +17,6 @@
                 .Connection = dbconn
                 .CommandText = "UPDATE products SET stock=" & (stocks + CDbl(TextBox1.Text)) & ",srp='" & TextBox2.Text & "' WHERE prodname = '" & ComboBox1.Text & "'"
                 .ExecuteNonQuery()
-                'MessageBox.Show(dept + " has been updated!", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 
             End With
         Catch ex As Exception

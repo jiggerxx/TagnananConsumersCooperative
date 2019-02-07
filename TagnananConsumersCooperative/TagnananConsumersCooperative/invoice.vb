@@ -207,7 +207,7 @@ Public Class invoice
             dbconn.Close()
             dbconn.Dispose()
 
-
+            
             printreceipt.datafrom = "invoice"
             printreceipt.selectedtransacnum = transnumber
             printreceipt.ShowDialog()
@@ -221,7 +221,7 @@ Public Class invoice
 
     Private Sub invoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox5.Focus()
-        loadproductswithstocks()
+        'loadproductswithstocks()
         TextBox5.Text = MDIParent1.user.Text
         loadcustomer()
         TextBox4.Text = 0
@@ -246,11 +246,11 @@ Public Class invoice
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs)
-        'addagent.ShowDialog()
+
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)
-        'addagent.ShowDialog()
+
     End Sub
 
     Private Sub TextBox4_Leave(sender As Object, e As EventArgs) Handles TextBox4.Leave
@@ -265,9 +265,7 @@ Public Class invoice
             discount = 0
         End Try
 
-        'discount = (discount / 100)
-        'finaltotal = total * discount
-        'finaltotal = total - finaltotal
+       
 
         finaltotal = total - discount
 
@@ -359,8 +357,8 @@ Public Class invoice
 
     Private Sub TextBox7_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox7.KeyDown
         If e.KeyCode = Keys.Enter Then
-            TextBox8.Text = Format((CDbl(TextBox7.Text) - CDbl(TextBox6.Text)), "0.00")
-            TextBox7.Text = Format(CDbl(TextBox7.Text), "0.00")
+            TextBox8.Text = Format((CDbl(TextBox7.Text) - CDbl(TextBox6.Text)), "0,0.00")
+            TextBox7.Text = Format(CDbl(TextBox7.Text), "0,0.00")
         End If
     End Sub
 

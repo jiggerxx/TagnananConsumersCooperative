@@ -46,6 +46,7 @@ Partial Class MDIParent1
         Me.fullname = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.RECEIPTSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,7 +56,7 @@ Partial Class MDIParent1
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.Silver
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DASHBOARDToolStripMenuItem, Me.STOCKSToolStripMenuItem, Me.POSToolStripMenuItem1, Me.CUSTOMERToolStripMenuItem, Me.REPORTSToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DASHBOARDToolStripMenuItem, Me.STOCKSToolStripMenuItem, Me.POSToolStripMenuItem1, Me.CUSTOMERToolStripMenuItem, Me.REPORTSToolStripMenuItem, Me.RECEIPTSToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Padding = New System.Windows.Forms.Padding(8, 3, 0, 3)
@@ -187,7 +188,7 @@ Partial Class MDIParent1
         'fullname
         '
         Me.fullname.Depth = 0
-        Me.fullname.Location = New System.Drawing.Point(483, 0)
+        Me.fullname.Location = New System.Drawing.Point(627, 0)
         Me.fullname.MouseState = MaterialSkin.MouseState.HOVER
         Me.fullname.Name = "fullname"
         Me.fullname.Primary = True
@@ -217,12 +218,19 @@ Partial Class MDIParent1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(749, 3)
+        Me.Label1.Location = New System.Drawing.Point(893, 3)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 20)
         Me.Label1.TabIndex = 23
         Me.Label1.Text = "Label1"
         Me.Label1.Visible = False
+        '
+        'RECEIPTSToolStripMenuItem
+        '
+        Me.RECEIPTSToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
+        Me.RECEIPTSToolStripMenuItem.Name = "RECEIPTSToolStripMenuItem"
+        Me.RECEIPTSToolStripMenuItem.Size = New System.Drawing.Size(76, 21)
+        Me.RECEIPTSToolStripMenuItem.Text = "RECIEPTS"
         '
         'MDIParent1
         '
@@ -277,5 +285,6 @@ Partial Class MDIParent1
     Friend WithEvents ADDToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents fullname As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents RECEIPTSToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

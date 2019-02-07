@@ -214,7 +214,7 @@ Public Class MDIParent1
         cart2.Dock = DockStyle.Fill
         cart2.Show()
         'cart2.Enabled = False
-        loadproductswithstocks()
+        'loadproductswithstocks()
         'Form2.Show()
         'loadcustomer()
         cart2.TextBox1.Focus()
@@ -229,7 +229,7 @@ Public Class MDIParent1
 
             .srp.Text = "-"
             .qty.Text = "-"
-            .ComboBox1.SelectedIndex = -1
+            '.ComboBox1.SelectedIndex = -1
             .totalcost.Text = "-"
 
             .cartcounterX = 0
@@ -310,5 +310,9 @@ Public Class MDIParent1
         '    Form2.Show()
         '    loadcustomer()
         'End If
+    End Sub
+
+    Private Sub RECEIPTSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RECEIPTSToolStripMenuItem.Click
+
     End Sub
 End Class
